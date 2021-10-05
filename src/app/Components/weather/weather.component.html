@@ -1,0 +1,30 @@
+<b>Location: Delhi</b>
+<div *ngFor="let g of getData">
+    
+    
+</div>
+<table class="table table-striped">
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+            TemperatureC
+        </th>
+        <th>
+            Summary
+        </th>
+    </tr>
+    <tr *ngFor="let data of getData">
+        <td>
+            {{data.date}}
+        </td>
+        <td>
+            {{data.temperatureC}}
+        </td>
+        <td>
+            {{data.summary}}
+        </td>
+        
+    </tr>
+</table>

@@ -1,0 +1,32 @@
+<table class="table table-striped">
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Desc
+        </th>
+        <th>
+            Active
+        </th>
+        <th>
+            Operations
+        </th>
+    </tr>
+    <tr *ngFor="let todo of todo">
+        <td>
+            {{todo.title}}
+        </td>
+        <td>
+            {{todo.desc}}
+        </td>
+        <td>
+            <div class="form-check">
+                <input type="checkbox" (click)="changeActive(todo)" [checked]="todo.active" class="form-check-input mx-2" id="exampleCheck1">
+            </div>
+        </td>
+        <td>
+            <button class="btn btn-sm btn-outline-danger" (click)="onDelete(todo)">Delete</button>
+        </td>
+    </tr>
+</table>

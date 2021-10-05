@@ -1,0 +1,14 @@
+<div class="container">
+    <h3>Add Todo</h3>
+    <app-add-todo (todoAddEmit)="addTodo($event)"></app-add-todo>
+
+    <h3 class="my-5">List of Todos</h3>
+
+    <div *ngIf="this.todos.length===0; else elseBlock">
+        <p>No todos to show</p>
+    </div>
+    <ng-template #elseBlock>
+        <app-todo-item [todo]="todos" (todoDeleteEmit)="deleteTodo($event)" (todoChangeActiveEmit)="changeActiveTodoStatus($event)"></app-todo-item>
+    </ng-template>
+
+</div>
