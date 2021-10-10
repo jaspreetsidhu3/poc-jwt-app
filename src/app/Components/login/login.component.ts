@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
       'password': form.value.password
     }
     //this.sub = 
-    this.http.post<any>("https://localhost:44363/api/Auth/login", credentials)
+    this.http.post<any>("https://poc-demo-backend.herokuapp.com/api/Auth/login", credentials)
       .subscribe(data => {
         const token = data.token;
         localStorage.setItem("jwt", token);
