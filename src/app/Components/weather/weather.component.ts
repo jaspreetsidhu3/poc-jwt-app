@@ -17,7 +17,14 @@ export class WeatherComponent implements OnInit {
   getData: any | undefined;
   ngOnInit(): void {
 
-    this.http.get<any>("https://poc-demo-backend.herokuapp.com/WeatherForecast").subscribe(data => {
+    
+    const token = this.jwtHelper.tokenGetter();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    //console.log(token);
+    this.http.get<any>("https://poc-demo-backend.herokuapp.com/WeatherForecast", {
+      observe: 'response'
+      , headers: headers
+    }).subscribe(data => {
       console.log(data.body);
       this.getData = data.body;
     }, error => {
